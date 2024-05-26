@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://hcreubufkl4i"]
+[gd_scene load_steps=13 format=3 uid="uid://hcreubufkl4i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_rc70g"]
 [ext_resource type="PackedScene" uid="uid://d0n2afm8ixhyn" path="res://coin.tscn" id="2_h2uml"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dbbbqsrgii1dn" path="res://assets/audio/Hit.wav" id="8_o7y6s"]
 [ext_resource type="PackedScene" uid="uid://dxjjipreamqho" path="res://cactus.tscn" id="9_vrvoj"]
 [ext_resource type="AudioStream" uid="uid://jh7m5hb0r05h" path="res://assets/audio/Powerup.wav" id="11_ok3pe"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="12_0eqip"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_rc70g")
@@ -56,6 +57,13 @@ scale = Vector2(0.2, 0.2)
 
 [node name="PowerupSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ok3pe")
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("12_0eqip")]
+offset_top = -180.0
+offset_bottom = 120.0
+scale = Vector2(0.4, 0.4)
+joystick_mode = 2
+visibility_mode = 1
 
 [connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
 [connection signal="pickup" from="Player" to="." method="_on_player_pickup"]
